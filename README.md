@@ -1,7 +1,9 @@
 # M122 Script Sofia & Ennio
 Unser Script ist dazu da um Rezepte zu finden und Mealpläne zu erstellen.
 
-## Code Erklärung 
+🔗 [Script herunterladen](Final%20Script%20recipe.ps1)
+
+# Code Erklärung 
 
 1. Funktion: Rezeptdetails abrufen
 
@@ -81,7 +83,8 @@ Get-MealDetails $meals[$choice-1].idMeal
 
 - Details werden angezeigt
 
-## Anleitung
+
+# Anleitung
 
 1. Das Script sollte in dem Ordner gespeichert werden wo man die Rezepte oder den Mealplan speichern möchte:
 ![Ordner](Location_Sreenshot.png)
