@@ -5,11 +5,13 @@ Unser Script ist dazu da um Rezepte zu finden und Mealpläne zu erstellen.
 
 1. Funktion: Rezeptdetails abrufen
 
+```powershell
+
 function Get-MealDetails($id) {
     $url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=$id"
     $response = Invoke-RestMethod -Uri $url
 }
-
+````
 
 #### 🔹 Zweck der Funktion
 
@@ -23,11 +25,12 @@ function Get-MealDetails($id) {
 
 2. Funktion: Zutaten & Mengen anzeigen
 
+```powershell
     for ($i = 1; $i -le 20; $i++) {
         $ingredient = $meal."strIngredient$i"
         $measure = $meal."strMeasure$i"
     }
-
+````
 
 #### 🔹 Erklärung
 - Die API speichert Zutaten nummeriert (strIngredient1 bis strIngredient20)
@@ -37,11 +40,11 @@ function Get-MealDetails($id) {
 - Nur nicht-leere Zutaten werden ausgegeben
 ----
 3. Rezeptsuche über Benutzereingabe
-
+```powershell
 $search = Read-Host "Bitte Gericht eingeben"
 $url = "https://www.themealdb.com/api/json/v1/1/search.php?s=$search"
 $response = Invoke-RestMethod -Uri $url
-
+````
 
 #### 🔹 Was passiert hier?
 
@@ -52,11 +55,11 @@ $response = Invoke-RestMethod -Uri $url
 - Passende Rezepte werden geladen
 ---
 6. Anzeige der Suchergebnisse
-
+```powershell
 for ($i = 0; $i -lt $meals.Count; $i++) {
     Write-Host "$($i+1): $($meals[$i].strMeal)"
 }
-
+````
 
 #### 🔹 Funktion
 
@@ -65,10 +68,10 @@ for ($i = 0; $i -lt $meals.Count; $i++) {
 - Ermöglicht dem Benutzer eine einfache Auswahl
 ---
 7. Auswahl & Detailanzeige
-
+```powershell
 $choice = Read-Host "Nummer auswählen"
 Get-MealDetails $meals[$choice-1].idMeal
-
+````
 
 #### 🔹 Ablauf
 
